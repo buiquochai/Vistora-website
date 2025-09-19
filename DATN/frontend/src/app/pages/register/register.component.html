@@ -1,0 +1,18 @@
+<body>
+<section class="register-section">
+  <div class="register-container">
+    <h2 class="register-title">Đăng Ký</h2>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <input type="text" placeholder="Tên đăng nhập" name="username" [(ngModel)]="username" required />
+      <input type="email" placeholder="Email" name="email" [(ngModel)]="email" required />
+      <input type="password" placeholder="Mật khẩu" name="password" [(ngModel)]="password" required />
+      <input type="password" placeholder="Xác nhận mật khẩu" name="confirmPassword" [(ngModel)]="confirmPassword" required />
+
+      <button type="submit" class="register-button" [disabled]="!registerForm.form.valid">Đăng Ký</button>
+
+      <a href="/dang-nhap" class="login-link">Đã có tài khoản? Đăng nhập</a>
+    </form>
+  </div>
+</section>
+
+</body>

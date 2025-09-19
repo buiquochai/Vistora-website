@@ -1,0 +1,114 @@
+/* admin-layout.css */
+
+/* Reset cơ bản */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Toàn bộ layout */
+:host {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* Navbar bên trái */
+nav {
+  width: 220px;
+  background-color: #1f2937;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  flex-shrink: 0;
+}
+
+/* Link trong navbar */
+nav a {
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+nav a:hover {
+  background-color: #374151;
+  color: #fcd34d;
+}
+
+nav a.active {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+/* Nội dung chính */
+.main-content {
+  flex: 1;
+  padding: 0; /* loại bỏ padding trên cùng */
+  background-color: #f9fafb;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Reset margin cho header, h1, h2, table,... */
+.main-content header,
+.main-content h1,
+.main-content h2,
+.main-content table {
+  margin: 0;
+}
+
+/* Thêm padding cho các section cụ thể */
+.main-content > header {
+  padding: 20px;
+}
+
+.main-content .cards {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.main-content .cards .card {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.main-content .table-container {
+  background-color: #fff;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Responsive trên mobile */
+@media (max-width: 768px) {
+  :host {
+    flex-direction: column;
+  }
+
+  nav {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  nav a {
+    flex: 1 0 auto;
+    text-align: center;
+  }
+
+  .main-content .cards {
+    flex-direction: column;
+  }
+}

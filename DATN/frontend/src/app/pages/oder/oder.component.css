@@ -1,0 +1,189 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  background-image:
+    radial-gradient(circle at top left, rgba(192,192,192,0.25), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(192,192,192,0.25), transparent 40%);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.order-container {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.order-card {
+  background-color: #1f1f1f;
+  border: 1px solid #ffea00;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.status {
+  border: 1px solid currentColor;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  background: transparent;
+}
+
+
+.status.Chờ\ xác\ nhận {
+  color: orange;
+}
+
+.status.Đã\ xác\ nhận {
+  color: limegreen;
+}
+
+.status.Đang\ giao {
+  color: deepskyblue;
+}
+
+.status.Đã\ giao {
+  color: #ccc;
+}
+
+.status.Đã\ hủy {
+  color: crimson;
+}
+
+.order-items .item-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.order-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.cancel-btn {
+  background-color: red;
+  border: none;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-form {
+  background-color: #2b2b2b;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.reason-list label {
+  display: block;
+  margin: 8px 0;
+  color: white;
+}
+
+.cancel-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.confirm-btn {
+  background-color: gold;
+  border: none;
+  color: black;
+  padding: 8px 20px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.deny-btn {
+  background-color: crimson;
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reorder-btn {
+  background-color: gold;
+  color: black;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+
+.reorder-btn:hover {
+  background-color: #ffd700;
+}
+
+.details-btn {
+  background-color: #28a745; /* màu xanh lá */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-left: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.details-btn:hover {
+  background-color: #218838; /* xanh đậm khi hover */
+}
+
+
+/* Loc */
+
+.filter-bar {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  display: inline-block;
+  color: white;
+  font-size: 16px;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); /* ánh vàng kim */
+}
+
+.filter-bar label {
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+.filter-bar select {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #2b2b2b;
+  color: white;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.filter-bar select:hover,
+.filter-bar select:focus {
+  border-color: gold;
+}
+

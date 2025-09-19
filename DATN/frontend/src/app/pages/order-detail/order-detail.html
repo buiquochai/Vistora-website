@@ -1,0 +1,50 @@
+<body>
+  <div *ngIf="order; else loading" class="order-detail-container">
+  <h2 class="title">Chi tiết đơn hàng</h2>
+
+  <!-- Thông tin khách hàng -->
+  <div class="card customer-info">
+    <h3>Thông tin khách hàng</h3>
+    <p><strong>Họ tên:</strong> {{ order.name }}</p>
+    <p><strong>Số điện thoại:</strong> {{ order.phone }}</p>
+    <p><strong>Địa chỉ:</strong> {{ order.address }}</p>
+    <p><strong>Phương thức thanh toán:</strong> {{ order.paymentMethod | uppercase }}</p>
+
+      <p>
+  <strong>Trạng thái: </strong>
+  <span class="status" [ngClass]="{
+    'pending': order.status === 'Chờ xác nhận',
+    'cancelled': order.status === 'Đã hủy',
+    'delivered': order.status === 'Đã giao'
+  }">{{ order.status }}</span>
+</p>
+
+
+    <p><strong>Ngày tạo:</strong> {{ order.createdAt | date:'dd/MM/yyyy HH:mm' }}</p>
+  </div>
+
+  <!-- Danh sách sản phẩm -->
+  <div class="card products-section">
+    <h3>Sản phẩm trong đơn</h3>
+    <div *ngFor="let item of order.products" class="product-row">
+      <img [src]="item.image" alt="Sản phẩm" class="product-image" (click)="goToProduct(item.productId)" />
+<div class="product-info">
+  <p><strong>Tên sản phẩm:</strong> {{ item.name }}</p>
+  <p><strong>Số lượng:</strong> {{ item.quantity }}</p>
+  <p><strong>Giá:</strong> {{ item.price | number }} VND</p>
+  <p><strong>Thành tiền:</strong> {{ (item.price * item.quantity) | number }} VND</p>
+</div>
+    </div>
+  </div>
+
+  <!-- Tổng tiền -->
+  <div class="card total-section">
+    <p><strong>Tổng tiền:</strong> {{ getTotalAmount() | number }} VND</p>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p class="loading-text">Đang tải dữ liệu đơn hàng...</p>
+</ng-template>
+
+</body>

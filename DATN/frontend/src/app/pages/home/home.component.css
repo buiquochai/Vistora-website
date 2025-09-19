@@ -1,0 +1,314 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  background-image:
+    radial-gradient(circle at top left, rgba(192,192,192,0.25), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(192,192,192,0.25), transparent 40%);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.banner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.banner-img {
+  max-width: 1900px;
+  height: auto;
+  display: block;
+  height: 700px;
+
+}
+
+.sale-banner {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.banner-sale {
+  width: 80%;        /* hoặc bạn có thể dùng: 1200px */
+  max-width: 1100px; /* giới hạn không vượt quá kích thước lớn */
+  height: auto;      /* giữ tỉ lệ gốc */
+  display: block;
+  border-radius: 8px;
+  margin-left: 380px;
+  margin-bottom: 40px;
+}
+
+.home-container {
+  max-width: 100%;
+  margin: auto;
+  padding: 10px;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px;
+  color: black;
+
+  text-shadow:
+    1px 1px 2px rgba(0, 0, 0, 0.6),
+    0 0 5px rgba(0, 0, 0, 0.5); /* đổ bóng vàng sáng */
+}
+
+.section-title2 {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+
+  background: linear-gradient(90deg, #FFD700, #FFFACD, #FFD700);
+  background-size: 200%;
+  background-position: 0%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 1px 1px 2px rgba(255, 215, 0, 0.4), 0 0 6px rgba(255, 255, 200, 0.3);
+
+  transition: transform 0.3s ease, background-position 1s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+
+
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cột ngang */
+  gap: 40px; /* khoảng cách giữa các card */
+  justify-content: center; /* căn giữa toàn bộ grid */
+  max-width: 960px; /* (220 + gap) * 4 để vừa vặn */
+  margin: 0 auto; /* căn giữa container */
+}
+
+
+
+.product-card {
+  background-color: #1f1f1f;
+  border: 2px solid rgb(213, 188, 51);
+  border-radius: 12px;
+  padding: 16px;
+  width: 220px;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+
+.product-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.product-info {
+  font-size: 14px;
+  color: #cccccc;
+}
+
+.product-detail {
+  display: inline-block;
+  margin-top: 12px;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.product-detail:hover {
+  color: gold;
+
+}
+
+.center {
+  text-align: center;
+  padding-top: 30px;
+  text-decoration: none;
+}
+
+.btn-yellow {
+  background: gold;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-yellow:hover {
+  background: #ffd700;
+}
+
+
+
+
+.sale-text h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.sale-text p {
+  font-size: 24px;
+}
+
+.sale-text span {
+  color: yellow;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.img-sale{
+  width: 3000px;
+
+
+}
+.collection-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.collection-row img {
+  width: 375px;
+  border-radius: 8px ;
+  border: 2px #FFD700;
+
+}
+
+.review-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  background: #1a1a1a;
+  padding: 15px;
+  width: 250px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.review-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.stars {
+  color: gold;
+  font-size: 18px;
+}
+
+.stars .filled {
+  color: gold;
+}
+
+.stars span {
+  color: gray;
+}
+
+.register-section {
+  background: linear-gradient(to bottom, #1a1a1a, #333);
+  padding: 30px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 100%; /* giúp co giãn trên thiết bị nhỏ */
+}
+
+
+.register-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+.register-card {
+  flex: 1;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.yellow-card {
+  background: #ffe600;
+  color: #000;
+}
+
+.red-card {
+  background: #f94b4b;
+  color: #fff;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.register-form input {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+}
+
+.btn-yellow {
+  background: gold;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.center {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.gold-bar {
+  height: 60px;
+  width: 100vw;
+  background: linear-gradient(70deg, #FFD700, #FFFACD, #FFD700);
+  margin-bottom: 40px;
+}
+

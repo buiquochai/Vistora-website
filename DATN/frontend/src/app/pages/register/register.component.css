@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  background-image:
+    radial-gradient(circle at top left, rgba(192,192,192,0.25), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(192,192,192,0.25), transparent 40%);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.register-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: transparent; /* nền đen */
+}
+
+.register-container {
+  background: #111; /* nền container tối */
+  padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid #FFD700; /* viền vàng kim */
+  width: 320px;
+  text-align: center;
+}
+
+.register-title {
+  color: #FFD700; /* chữ vàng kim */
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.register-container input {
+  display: block;
+  width: 95%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f5f6fa;
+  color: #000;
+  font-size: 14px;
+}
+
+.register-container input::placeholder {
+  color: #999;
+}
+
+button.register-button {
+  width: 100%;
+  padding: 0.5rem;
+  background: #FFD700;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button.register-button:hover {
+  background: #e6c200;
+  transform: translateY(-2px);
+}
+
+button.register-button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+.login-link {
+  display: block;
+  margin-top: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.login-link:hover {
+  color: #FFD700; /* hover thành vàng */
+}
+
+/* Nút đăng ký bằng Google */
+.google-register-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  border: 2px solid #FFD700;
+  border-radius: 5px;
+  background: #ccc;
+  color: #FFD700;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.google-register-button img {
+  height: 18px;
+  margin-right: 8px;
+}
+
+.google-register-button:hover {
+  background: #e6c200;
+  transform: translateY(-2px);
+}

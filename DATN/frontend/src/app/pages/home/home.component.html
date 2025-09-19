@@ -1,0 +1,83 @@
+<body>
+  <div class="banner-container">
+  <img src="assets/baner1.png" class="banner-img">
+</div>
+  <div class="gold-bar">
+      <h2 class="section-title">Sản Phẩm HOT 🔥</h2>
+    </div>
+  <div class="home-container">
+
+  <!-- Sản phẩm HOT -->
+
+  <section class="section">
+
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of hotProducts">
+      <img [src]="product.image" alt="Product">
+      <div class="product-name">{{ product.name }}</div>
+      <div class="product-info">Loại: {{ product.type }}</div>
+      <div class="product-info">Giá: {{ product.price | currency }}</div>
+      <a href="xem-chi-tiet" class="product-detail">Xem chi tiết</a>
+    </div>
+  </div>
+
+  <div class="center">
+    <a href="san-pham" class="btn-yellow">Xem tất cả</a>
+  </div>
+</section>
+<div class="gold-bar">
+      <h2 class="section-title">SALE SẮP SẬN %</h2>
+    </div>
+
+<!-- <div class="img-sale">
+      <img src="assets/sale3.png" class="banner-sale">
+    </div> -->
+
+  <!-- SALE -->
+  <section class="section">
+    <div class="product-grid">
+      <div class="product-card" *ngFor="let sale of saleProducts">
+        <img [src]="sale.image" alt="Sale Product">
+        <h3>{{ sale.name }}</h3>
+        <p>{{ sale.price | currency }}</p>
+        <a href="xem-chi-tiet" class="product-detail">Xem chi tiết</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collections -->
+    <div>
+      <h2 class="section-title2">COLLECTION</h2>
+    </div>
+  <section class="section">
+
+    <div class="collection-row">
+      <img *ngFor="let item of collections" [src]="item.image" alt="Collection">
+    </div>
+  </section>
+
+  <!-- Đánh giá -->
+   <div>
+      <h2 class="section-title2">ĐÁNH GIÁ KHÁCH HÀNG</h2>
+    </div>
+  <section class="section">
+    <div class="review-row">
+      <div class="review-card" *ngFor="let review of customerReviews">
+        <img [src]="review.avatar" alt="Avatar">
+        <h4>{{ review.name }}</h4>
+        <div class="stars">
+          <span *ngFor="let s of [1,2,3,4,5]; let i = index">
+            <span [class.filled]="i < review.rating">★</span>
+          </span>
+        </div>
+        <p>"{{ review.comment }}"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Đăng ký -->
+  
+</div>
+</body>
+
+

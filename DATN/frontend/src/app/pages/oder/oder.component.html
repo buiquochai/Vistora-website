@@ -1,0 +1,66 @@
+<body>
+<div class="order-container">
+  <h2>Đơn hàng của bạn</h2>
+
+  <!-- Thanh lọc -->
+  <div class="filter-bar">
+    <label for="statusFilter">Lọc theo trạng thái:</label>
+    <select id="statusFilter" [(ngModel)]="selectedStatus" (change)="filterOrders()">
+      <option value="Tất cả">Tất cả</option>
+      <option value="Chờ xác nhận">Chờ xác nhận</option>
+      <option value="Đã xác nhận">Đã xác nhận</option>
+      <option value="Đang giao">Đang giao</option>
+      <option value="Đã giao">Đã giao</option>
+      <option value="Đã hủy">Đã hủy</option>
+    </select>
+  </div>
+
+  <!-- Danh sách đơn hàng -->
+  <div *ngFor="let order of filteredOrders" class="order-card">
+    <!-- Header -->
+    <div class="order-header">
+      <div>
+        <strong>Mã đơn:</strong> {{ order.id }} |
+        Ngày: {{ order.date | date:'dd/MM/yyyy HH:mm' }}
+      </div>
+      <span class="status" [ngClass]="order.status">{{ order.status }}</span>
+    </div>
+
+    <!-- Danh sách sản phẩm -->
+    <div class="order-items" *ngIf="order.items?.length > 0; else noItems">
+      <div *ngFor="let item of order.items" class="item-row">
+        <span>{{ item.name }} (x{{ item.quantity }})</span>
+        <span>{{ (item.price * item.quantity) | number }} VND</span>
+      </div>
+    </div>
+    <ng-template #noItems>
+      <p>Không có sản phẩm trong đơn.</p>
+    </ng-template>
+
+    <!-- Footer + nút hủy / mua lại -->
+    <div class="order-footer">
+      <span><strong>Tổng:</strong> {{ getTotalAmount(order) | number }} VND</span>
+      <button
+       class="details-btn"
+       (click)="viewOrderDetail(order)">
+        Xem chi tiết
+      </button>
+      <button
+        class="cancel-btn"
+        *ngIf="order.status === 'Chờ xác nhận'"
+        (click)="cancelOrder(order)">
+        Hủy đơn hàng
+      </button>
+
+      <button
+        class="reorder-btn"
+        *ngIf="order.status === 'Đã hủy'"
+        (click)="reorder(order)">
+        Mua lại
+      </button>
+
+    </div>
+  </div>
+</div>
+
+</body>

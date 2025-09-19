@@ -1,0 +1,13 @@
+
+  <nav>
+  <a routerLink="/admin">ADMIN</a>
+  <a routerLink="/admin/users">Quản lý người dùng</a>
+  <a routerLink="/admin/products">Quản lý sản phẩm</a>
+  <a routerLink="/admin/orders">Quản lý đơn hàng</a>
+  <a (click)="logout()">Đăng xuất</a>
+</nav>
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>
+
+

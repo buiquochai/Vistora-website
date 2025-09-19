@@ -1,0 +1,35 @@
+<body>
+<section class="login-section">
+  <div class="login-container">
+    <h2 class="login-title">Đăng Nhập</h2>
+    <form (ngSubmit)="login()">
+      <input
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="email"
+        name="email"
+        required
+      />
+      <input
+        type="password"
+        placeholder="Mật khẩu"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
+      <button type="submit" class="login-button" [disabled]="loading">
+        {{ loading ? 'Đang đăng nhập...' : 'Đăng nhập' }}
+      </button>
+      <a href="#" class="forgot-password">Quên mật khẩu hoặc tên người dùng?</a>
+      <a href="/dang-ky" class="register-button">Đăng ký</a>
+      <a href="https://accounts.google.com/signin" class="google-login-button">
+        <img
+          src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+          alt="Google"
+        />
+        <span>Đăng nhập bằng Google</span>
+      </a>
+    </form>
+  </div>
+</section>
+</body>

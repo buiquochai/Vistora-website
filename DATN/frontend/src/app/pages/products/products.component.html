@@ -1,0 +1,49 @@
+
+<body>
+<div class="filter-bar">
+  <div class="filter-group">
+    <label>
+      <span>Loại:</span>
+      <select [(ngModel)]="selectedType" (change)="applyFilters()">
+        <option value="all">Tất cả</option>
+        <option value="Vest">Vest</option>
+        <option value="Sơ Mi">Sơ Mi</option>
+        <option value="Quần Âu">Quần Âu</option>
+        <option value="Gile">Gile</option>
+      </select>
+    </label>
+
+    <label>
+      <span>Sắp xếp:</span>
+      <select [(ngModel)]="selectedSort" (change)="applyFilters()">
+        <option value="all">Tất cả sản phẩm</option>
+        <option value="price-desc">Giá (cao → thấp)</option>
+        <option value="price-asc">Giá (thấp → cao)</option>
+      </select>
+    </label>
+  </div>
+</div>
+
+<div class="product-grid">
+  <div class="product-card" *ngFor="let product of pagedProducts">
+    <img [src]="product.image" alt="Product">
+    <div class="product-name">{{ product.name }}</div>
+    <div class="product-info">Loại: {{ product.type }}</div>
+    <div class="product-info">Giá: {{ product.price | currency:'VND' }}</div>
+    <a [routerLink]="['/product', product._id]" class="product-detail">Xem chi tiết</a>
+  </div>
+</div>
+
+<!-- Phân trang -->
+<div class="pagination">
+  <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Trước</button>
+  <button
+    *ngFor="let page of [].constructor(totalPages); let i = index"
+    (click)="goToPage(i + 1)"
+    [class.active]="currentPage === (i + 1)">
+    {{ i + 1 }}
+  </button>
+  <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Sau</button>
+</div>
+
+</body>

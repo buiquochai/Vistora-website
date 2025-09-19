@@ -1,0 +1,129 @@
+<body>
+<div class="container" *ngIf="product">
+  <!-- Chi tiết sản phẩm -->
+  <div class="product-detail">
+    <!-- Ảnh sản phẩm -->
+    <div class="product-image">
+      <span class="arrow left">&#10094;</span>
+      <img [src]="product?.image" [alt]="product?.name" class="main-product-img">
+      <span class="arrow right">&#10095;</span>
+    </div>
+
+    <!-- Thông tin sản phẩm -->
+    <div class="product-info">
+      <h1 class="product-title">{{ product.name }}</h1>
+      <p class="price">Giá: {{ product.price | currency:'VND':'symbol':'1.0-0' }}</p>
+
+      <!-- Chọn màu (chỉ hiển thị, không thay đổi ảnh) -->
+      <div class="section" *ngIf="product.colors?.length">
+        <label>Màu:</label>
+        <div class="color-options">
+          <span *ngFor="let color of product.colors"
+                class="color"
+                [style.backgroundColor]="color.hex">
+          </span>
+        </div>
+      </div>
+
+      <!-- Chọn size -->
+      <div class="section">
+        <label>Chọn size: <a href="#" (click)="scrollToGuide($event)">Hướng dẫn</a></label>
+        <div class="size-options">
+          <button *ngFor="let size of ['S','M','L','XL']">{{ size }}</button>
+        </div>
+      </div>
+
+    <div class="section">
+      <label for="quantity">Số lượng:</label>
+        <input type="number"
+         id="quantity"
+         [(ngModel)]="quantity"
+         [min]="1"
+         [max]="product.stock || 1"
+         (ngModelChange)="onQuantityChange()">
+       <p *ngIf="stockError" class="stock-error">{{ stockError }}</p>
+    </div>
+
+
+      <!-- Nút mua -->
+      <div class="buttons">
+       <button class="add-to-cart" (click)="addToCart()">Thêm vào giỏ hàng</button>
+       <button class="add-to-cart-buy" (click)="buyNow()">Mua ngay</button>
+     </div>
+    </div>
+  </div>
+
+  <!-- Mô tả sản phẩm -->
+  <div class="section product-description">
+    <h3>Mô tả sản phẩm</h3>
+    <p>{{ product.description }}</p>
+  </div>
+
+  <!-- Hướng dẫn chọn size -->
+  <div id="size-guide" class="size-guide section">
+    <h3>Hướng dẫn chọn size</h3>
+    <table class="size-table">
+      <thead>
+        <tr>
+          <th>Size</th>
+          <th>Chiều cao (cm)</th>
+          <th>Cân nặng (kg)</th>
+          <th>Vòng ngực (cm)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>S</td><td>160-165</td><td>50-55</td><td>85-90</td></tr>
+        <tr><td>M</td><td>166-170</td><td>56-65</td><td>91-96</td></tr>
+        <tr><td>L</td><td>171-175</td><td>66-75</td><td>97-102</td></tr>
+        <tr><td>XL</td><td>176-180</td><td>76-85</td><td>103-108</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Đánh giá -->
+  <div class="review-section section">
+    <h3>Đánh giá sản phẩm</h3>
+    <div class="stars">
+      <span *ngFor="let star of starsArray; let i = index"
+            (click)="setRating(i + 1)"
+            [class.selected]="i < rating">
+        &#9733;
+      </span>
+    </div>
+    <p *ngIf="rating > 0">Bạn đã đánh giá {{ rating }} sao</p>
+  </div>
+
+  <!-- Bình luận -->
+  <div class="comment-section">
+    <h3>Bình luận</h3>
+    <form (submit)="submitComment(); $event.preventDefault()">
+      <input type="text" [(ngModel)]="newComment.name" name="name" placeholder="Tên của bạn">
+      <textarea [(ngModel)]="newComment.content" name="content" placeholder="Nội dung bình luận"></textarea>
+      <button type="submit">Gửi</button>
+    </form>
+
+    <ul class="comment-list">
+      <li *ngFor="let comment of comments" class="comment-item">
+        <img [src]="comment.avatar" alt="Avatar" class="avatar">
+        <div class="comment-content">
+          <strong>{{ comment.name }}</strong>
+          <p>{{ comment.content }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Sản phẩm gợi ý -->
+  <h2 class="suggested-title">BẠN CÓ THỂ QUAN TÂM</h2>
+<div class="suggested-products">
+  <div *ngFor="let product of suggestedProducts" class="suggested-card">
+    <img [src]="product.images?.[0] || 'assets/no-image.png'" alt="{{ product.name }}">
+    <p>{{ product.name }}</p>
+    <span>Giá: {{ product.price | currency:'VND':'symbol':'1.0-0' }}</span>
+    <a [routerLink]="['/product', product._id]" class="product-detail">Xem chi tiết</a>
+  </div>
+</div>
+</div>
+
+
+</body>

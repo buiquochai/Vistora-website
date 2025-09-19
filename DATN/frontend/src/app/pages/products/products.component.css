@@ -1,0 +1,183 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  background-image:
+    radial-gradient(circle at top left, rgba(192,192,192,0.25), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(192,192,192,0.25), transparent 40%);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  background-image:
+    radial-gradient(circle at top left, rgba(192,192,192,0.25), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(192,192,192,0.25), transparent 40%);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cột ngang */
+  gap: 40px; /* khoảng cách giữa các card */
+  justify-content: center; /* căn giữa toàn bộ grid */
+  max-width: 960px; /* (220 + gap) * 4 để vừa vặn */
+  margin: 0 auto; /* căn giữa container */
+}
+
+
+
+.product-card {
+  background-color: #1f1f1f;
+  border: 2px solid rgb(213, 188, 51);
+  border-radius: 12px;
+  padding: 16px;
+  width: 220px;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+
+.product-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.product-info {
+  font-size: 14px;
+  color: #cccccc;
+}
+
+.product-detail {
+  display: inline-block;
+  margin-top: 12px;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.product-detail:hover {
+  color: gold;
+
+}
+
+.center {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-yellow {
+  background: gold;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-yellow:hover {
+  background: #ffd700;
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  background-color: #2c2c2c; /* Thanh filter-bar màu xám */
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.filter-group {
+  display: flex;
+  gap: 24px;
+}
+
+.filter-group label {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.filter-group select {
+  background-color: transparent;  /* Hộp trong suốt */
+  color: white;                   /* Chữ trong hộp màu trắng */
+  border: 1px solid #888;
+  padding: 6px 10px;
+  border-radius: 4px;
+  outline: none;
+  appearance: none;
+  font-size: 14px;
+}
+
+/* Khi click vào select, các option vẫn có chữ màu đen */
+.filter-group select option {
+  background-color: white;
+  color: black;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
+.pagination button.active {
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  border-color: #333;
+}
+
+.pagination button:disabled {
+  background-color: #eaeaea;
+  color: #999;
+  cursor: not-allowed;
+}

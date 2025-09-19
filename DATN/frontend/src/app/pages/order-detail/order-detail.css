@@ -1,0 +1,95 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  background-image:
+    radial-gradient(circle at top left, rgba(192,192,192,0.25), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(192,192,192,0.25), transparent 40%);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+/* order-detail.component.css */
+.order-detail-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 15px;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  color: #FFD700; /* vàng kim */
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: #1c1c1c; /* đen tối */
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.customer-info h3,
+.products-section h3 {
+  color: #FFD700;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #FFD700;
+  padding-bottom: 5px;
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding: 10px 0;
+}
+
+.product-row:last-child {
+  border-bottom: none;
+}
+
+.product-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.product-info p {
+  margin: 4px 0;
+  color: #fff;
+}
+
+.total-section {
+  text-align: right;
+  font-size: 1.2rem;
+  color: #FFD700;
+}
+
+.status {
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.status.pending {
+  background-color: #FFA500; /* cam */
+  color: #000;
+}
+
+.status.cancelled {
+  background-color: #FF0000; /* đỏ */
+  color: #fff;
+}
+
+.status.delivered {
+  background-color: #32CD32; /* xanh lá */
+  color: #000;
+}

@@ -1,0 +1,36 @@
+<div class="orders-container">
+  <h2>Quản lý đơn hàng</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tên khách hàng</th>
+        <th>Tổng tiền</th>
+        <th>Trạng thái</th>
+        <th>Thao tác</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order._id }}</td>
+        <td>{{ order.name }}</td>
+        <td>{{ order.totalAmount | number:'1.0-0' }}₫</td>
+        <td>{{ order.status }}</td>
+        <td>
+          <button
+            class="confirm-btn"
+            [disabled]="order.status !== 'Chờ xác nhận'"
+            (click)="confirmOrder(order._id)">
+            Xác nhận
+          </button>
+          <button
+            class="cancel-btn"
+            [disabled]="order.status !== 'Đang giao'"
+            (click)="cancelOrder(order._id)">
+            Hủy
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,40 @@
+<header class="header">
+  <div class="logo-container">
+    <img src="assets/logofix.png" class="logo" alt="Logo" />
+  </div>
+
+  <nav class="nav">
+    <a routerLink="/" routerLinkActive="active">Trang Chủ</a>
+    <a routerLink="/san-pham" routerLinkActive="active">Sản Phẩm</a>
+    <a routerLink="/gioi-thieu" routerLinkActive="active">Giới Thiệu</a>
+    <a routerLink="/san-pham" routerLinkActive="active">Liên Hệ</a>
+  </nav>
+
+  <div class="right-tools">
+    <div class="search-container">
+  <input
+    type="text"
+    placeholder="Tìm kiếm sản phẩm..."
+    [(ngModel)]="searchTerm"
+    (input)="onSearchChange()"
+    class="search-input"
+  />
+
+  <!-- Gợi ý -->
+  <ul *ngIf="suggestions.length > 0" class="suggestion-list">
+    <li
+      *ngFor="let product of suggestions"
+      (click)="selectSuggestion(product.name)"
+    >
+      {{ product.name }}
+    </li>
+  </ul>
+</div>
+    <img src="assets/Page.png" routerLink="/dang-nhap" alt="icon1" class="icon">
+    <img src="assets/Vector2.png"  routerLink="/gio-hang" alt="icon1" class="icon">
+    <img src="assets/car2.png"  routerLink="/don-hang" alt="icon1" class="icon2">
+  </div>
+
+</header>
+<div class="gold-bar"></div>
+

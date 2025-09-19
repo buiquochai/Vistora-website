@@ -1,0 +1,52 @@
+<body>
+  <div class="checkout-container">
+  <h2>Thanh toán</h2>
+
+  <!-- Thông tin sản phẩm -->
+  <div class="checkout-section" *ngIf="product">
+    <h3>Sản phẩm</h3>
+    <div class="order-item">
+      <span>{{ product.name }} x{{ quantity }}</span>
+      <span>{{ (product.price * quantity) | number }} VND</span>
+    </div>
+    <div class="total">
+      Tổng: <strong>{{ totalAmount | number }} VND</strong>
+    </div>
+  </div>
+
+  <!-- Thông tin giao hàng -->
+  <div class="checkout-section">
+    <h3>Thông tin giao hàng</h3>
+    <form #shippingForm="ngForm">
+      <input type="text" placeholder="Họ và tên" [(ngModel)]="name" name="name" required />
+      <input type="text" placeholder="Số điện thoại" [(ngModel)]="phone" name="phone" required />
+      <input type="text" placeholder="Địa chỉ" [(ngModel)]="address" name="address" required />
+    </form>
+  </div>
+
+  <!-- Phương thức thanh toán -->
+  <div class="checkout-section">
+    <h3>Phương thức thanh toán</h3>
+    <label class="radio-label">
+      <input type="radio" name="payment" [(ngModel)]="paymentMethod" value="cod" /> Thanh toán khi nhận hàng (COD)
+    </label>
+    <label class="radio-label">
+      <input type="radio" name="payment" [(ngModel)]="paymentMethod" value="bank" /> Chuyển khoản ngân hàng
+    </label>
+  </div>
+
+  <!-- Đồng ý điều khoản -->
+  <div class="checkout-section">
+    <label class="terms-checkbox">
+      <input type="checkbox" [(ngModel)]="agreedToTerms" name="terms" />
+      Tôi đồng ý với <a href="gioi-thieu">điều khoản và chính sách</a>
+    </label>
+  </div>
+
+  <!-- Nút thanh toán -->
+  <button class="confirm-btn" [disabled]="!agreedToTerms" (click)="submitOrder()">
+    Xác nhận đơn hàng
+  </button>
+</div>
+
+

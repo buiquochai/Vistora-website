@@ -1,0 +1,44 @@
+<main class="dashboard-content">
+  <header>
+    <h1>Chào mừng Admin</h1>
+  </header>
+
+  <!-- Cards -->
+  <div class="cards">
+    <div class="card">
+      <h3>Tổng sản phẩm</h3>
+      <p>{{ stats.totalProducts }}</p>
+    </div>
+    <div class="card">
+      <h3>Tổng đơn hàng</h3>
+      <p>{{ stats.totalOrders }}</p>
+    </div>
+    <div class="card">
+      <h3>Tổng người dùng</h3>
+      <p>{{ stats.totalUsers }}</p>
+    </div>
+  </div>
+
+  <!-- Bảng đơn hàng mới -->
+  <div class="table-container">
+    <h2>Đơn hàng mới</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Khách hàng</th>
+          <th>Tổng tiền</th>
+          <th>Trạng thái</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of recentOrders">
+           <td>{{ order._id }}</td>
+           <td>{{ order.name }}</td>
+           <td>{{ order.totalAmount | number:'1.0-0' }}₫</td>
+           <td>{{ order.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

@@ -1,0 +1,33 @@
+
+<body>
+<div class="cart-container" *ngIf="cart.length > 0; else emptyCart">
+  <h2>Giỏ hàng của bạn</h2>
+  <div class="cart-items">
+    <div class="cart-item" *ngFor="let item of cart">
+      <img [src]="item.image || 'assets/no-image.png'" alt="{{item.name}}" class="item-image">
+      <div class="item-info">
+        <h3>{{ item.name }}</h3>
+        <p>Giá: {{ item.price | currency:'VND':'symbol':'1.0-0' }}</p>
+        <div class="quantity-control">
+          <button (click)="decreaseQuantity(item)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="increaseQuantity(item)">+</button>
+        </div>
+        <p>Tổng: {{ (item.price * item.quantity) | currency:'VND':'symbol':'1.0-0' }}</p>
+      </div>
+      <button class="remove-btn" (click)="removeItem(item)">×</button>
+    </div>
+  </div>
+
+  <div class="cart-summary">
+    <p>Tổng đơn hàng: <strong>{{ getTotal() | currency:'VND':'symbol':'1.0-0' }}</strong></p>
+    <button class="checkout-btn" (click)="checkout()">Thanh toán</button>
+  </div>
+</div>
+
+<ng-template #emptyCart>
+  <p class="empty-message">Giỏ hàng đang trống.</p>
+</ng-template>
+
+
+</body>
